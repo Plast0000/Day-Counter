@@ -15,35 +15,35 @@ def isLeapYear(year):
         
 
 def comp_day(dim_, m):
-    
-    dk = dim_
-    while dk < daysofmonth(m):
-        dk += 1
-        if dk == daysofmonth(m):
-            return dk  
-
+    #find the number oof days between a specific day of a month
+    #and the last day in that month
+    dk = daysofmonth(m) - dim_
+    return dk
 
 def daysofmonth(m):
+    #returns the number of days in a passed month
+    if m <1 or m > 12:
+        return -1
     daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     m -= 1
     return daysOfMonths[m]
 
 def daysBetweenDates(y1, m1, d1, y2, m2, d2):
-    yy2 = y2
-    yy1 = y1
+    #calculate the number of days between 2 dates
+    yy2 = y2 #passing variables into local ones so that we preserve passed ones (y1, d1...etc) 
+    yy1 = y1 #so that their original values are accessible later for a different purpose.
     if y2 < y1:
         yy2 = y1
-        yy1 = y2
+        yy1 = y2 #I want 'yy2' to hold the largest value
 
-    dd1 = comp_day(d1, m1)
-    ddf = dd1 - d1
+    ddf = comp_day(d1, m1)
     m1 += 1
 
     g = m1
     kx = 0
 
     if isLeapYear(yy1):
-            ddf += 1
+            ddf += 1 # add 1 day if the use passed year is a leap year.
 
     while (yy1 <= yy2):
         kx += daysofmonth(g)
@@ -65,4 +65,5 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
     kf = kx + ddf
     return kf + 1
 
-print daysBetweenDates(1997, 2, 1, 2016, 8, 1)
+#ex: this should print '7121'
+#print daysBetweenDates(1997, 2, 1, 2016, 8, 1)

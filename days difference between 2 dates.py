@@ -1,6 +1,9 @@
 #daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def isLeapYear(year):
+#check if the passed year is a leap year or not.
+#it will subtract 4 until it reaches zero or less. if zero then it's a leap year.
+#otherwise. it's not.
 
     i = year
     while i > 0:
@@ -12,6 +15,7 @@ def isLeapYear(year):
         
 
 def comp_day(dim_, m):
+    
     dk = dim_
     while dk < daysofmonth(m):
         dk += 1

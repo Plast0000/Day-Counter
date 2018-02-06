@@ -2,15 +2,22 @@ def isLeapYear(year):
 #check if the passed year is a leap year or not.
 #it will subtract 4 until it reaches zero or less. if zero then it's a leap year.
 #otherwise. it's not.
-
-    i = year
-    while i > 0:
-        i -= 4
-    if i == 0:
-        return True
-    else:
-        return False
-        
+    if year >= 0:
+        i = year
+        while i > 0:
+            i -= 4
+        if i == 0:
+            return True
+        else:
+            return False
+     elif year <= 0:
+        i = year
+        while i < 0:
+            i += 4
+        if i == 0:
+            return True
+        else:
+            return False
 
 def comp_day(dim_, m):
     #find the number oof days between a specific day of a month
